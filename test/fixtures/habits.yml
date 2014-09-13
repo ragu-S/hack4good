@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  co2_reduction: 1.5
+  impact: 1.5
+  popularity: 1
+
+two:
+  name: MyString
+  description: MyText
+  co2_reduction: 1.5
+  impact: 1.5
+  popularity: 1
