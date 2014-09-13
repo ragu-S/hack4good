@@ -1,5 +1,6 @@
 class HabitsController < ApplicationController
   before_action :set_habit, only: [:show, :edit, :update, :destroy]
+  respond_to :json
 
   # GET /habits
   # GET /habits.json
