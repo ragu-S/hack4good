@@ -2,7 +2,6 @@ class HabitsController < ApplicationController
   before_action :set_habit, only: [:add_habit, :show, :edit, :update, :destroy]
   respond_to :json
 
-
   # GET /habits
   # GET /habits.json
   def index
@@ -11,7 +10,7 @@ class HabitsController < ApplicationController
 
   def add_habit
     current_user.habits << @habit
-    @habit.popularity+=1
+    @habit.update_column(:popularity, @habit.popularity + 1)
     redirect_to :root
   end
 
@@ -76,8 +75,12 @@ class HabitsController < ApplicationController
       @habit = Habit.find(params[:id])
     end
 
+    def increase_popularity
+      @habit.popularity+=1
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def habit_params
-      params.require(:habit).permit(:name, :description, :co2_reduction, :impact, :popularity)
+      params.require(:habit).permit(:name, :description, :co2_reduction, :popularity)
     end
 end
