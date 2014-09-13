@@ -20,7 +20,9 @@
         <td><%= habit.description %></td>
         <td><%= habit.co2_reduction %></td>
         <td><%= habit.popularity %></td>
-        <td><%= current_user.habits.count %></td>
+        <% if current_user %>
+          <td><%= current_user.habits.count %></td>
+        <% end %>
         <td><%= link_to 'Add habit your list', add_habit_path(habit.id) %></td>
         <td><%= link_to 'Show', habit %></td>
         <td><%= link_to 'Edit', edit_habit_path(habit) %></td>
