@@ -11,6 +11,7 @@ class HabitsController < ApplicationController
 
   def add_habit
     current_user.habits << @habit
+    @habit.popularity+=1
     redirect_to :root
   end
 
