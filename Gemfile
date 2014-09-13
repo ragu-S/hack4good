@@ -1,6 +1,15 @@
 source 'https://rubygems.org'
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
 
+gem 'country_select', github: 'stefanpenner/country_select'
+gem 'simple_form'
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use postgresql as the database for Active Record
