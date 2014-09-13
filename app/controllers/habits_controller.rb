@@ -5,13 +5,18 @@ class HabitsController < ApplicationController
   # GET /habits
   # GET /habits.json
   def index
-    @habits = Habit.all
+    @habits = Habit.all.order('popularity DESC')
   end
 
   def add_habit
-    current_user.habits << @habit
-    @habit.update_column(:popularity, @habit.popularity + 1)
-    redirect_to :root
+    unless current_user.habits.include?(@habit)
+      current_user.habits << @habit
+      @habit.update_column(:popularity, @habit.popularity + 1)
+      redirect_to :root
+    else
+      redirect_to :root, notice: "You already chose that habit."
+    end
+
   end
 
   # GET /habits/1
