@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :habits
 
   devise_for :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   root 'habits#index'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get 'users/add_habit/:id' => 'habits#add_habit', as: 'add_habit'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

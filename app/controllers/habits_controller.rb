@@ -1,11 +1,17 @@
 class HabitsController < ApplicationController
-  before_action :set_habit, only: [:show, :edit, :update, :destroy]
+  before_action :set_habit, only: [:add_habit, :show, :edit, :update, :destroy]
   respond_to :json
+
 
   # GET /habits
   # GET /habits.json
   def index
     @habits = Habit.all
+  end
+
+  def add_habit
+    current_user.habits << @habit
+    redirect_to :root
   end
 
   # GET /habits/1
@@ -61,6 +67,7 @@ class HabitsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

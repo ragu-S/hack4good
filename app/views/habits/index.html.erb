@@ -6,8 +6,9 @@
       <th>Name</th>
       <th>Description</th>
       <th>Co2 reduction</th>
-      <th>Impact</th>
       <th>Popularity</th>
+      <th>Nr of habits</th>
+      <th>Choose</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,8 +19,9 @@
         <td><%= habit.name %></td>
         <td><%= habit.description %></td>
         <td><%= habit.co2_reduction %></td>
-        <td><%= habit.impact %></td>
         <td><%= habit.popularity %></td>
+        <td><%= current_user.habits.count %></td>
+        <td><%= link_to 'Add habit your list', add_habit_path(habit.id) %></td>
         <td><%= link_to 'Show', habit %></td>
         <td><%= link_to 'Edit', edit_habit_path(habit) %></td>
         <td><%= link_to 'Destroy', habit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
